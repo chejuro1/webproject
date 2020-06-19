@@ -7,5 +7,18 @@ pipeline {
       }
     }
 
+    stage('Artifact') {
+      steps {
+        sh '''docker push 
+'''
+      }
+    }
+
+    stage('helm ') {
+      steps {
+        sh 'Helm create '
+      }
+    }
+
   }
 }
