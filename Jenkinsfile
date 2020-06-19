@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'sudo docker build . -t  chejuro/myfirsrepo:v10'
+        sh 'docker build . -t  chejuro/myfirsrepo:v10'
       }
     }
 
