@@ -1,24 +1,13 @@
 pipeline {
-  agent any
-  stages {
-    stage('Build') {
-      steps {
-        sh 'docker build . -t  chejuro/myfirsrepo:v10'
-      }
-    }
+    /* insert Declarative Pipeline here */
+ agent none
+ stages {
+        stage('Build') {
+            agent { docker 'maven:3-alpine' } 
+            steps {
+                echo 'Hello, Maven'
+                sh 'mvn --version'
+            }
+        }
 
-    stage('Artifact') {
-      steps {
-        sh '''docker push 
-'''
-      }
-    }
-
-    stage('helm ') {
-      steps {
-        sh 'Helm create '
-      }
-    }
-
-  }
 }
