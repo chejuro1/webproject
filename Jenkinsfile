@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Clone ') {
       steps {
-        sh '''rm -rf /home/jenkins/workspace/*
+        sh '''
 git clone https://github.com/chejuro1/webproject.git
 
 
