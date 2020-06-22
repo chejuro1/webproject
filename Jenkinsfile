@@ -6,9 +6,10 @@ pipeline {
 
   }
   stages {
-    stage('Build') {
+    stage('Clone ') {
       steps {
-        sh '''sudo docker build . -t chejuro/myfirsrepo:v10
+        sh '''git clone https://github.com/chejuro1/webproject.git
+
 
 '''
       }
