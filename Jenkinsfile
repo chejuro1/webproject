@@ -19,7 +19,8 @@ pipeline {
       steps {
         sh 'sudo docker build -t chejuro/myfirsrepo:v11 .'
         cleanWs(cleanWhenSuccess: true, cleanWhenFailure: true, deleteDirs: true)
-        sh 'docker login -u  $chejuro -p $pass '
+        sh '''sudo docker login -u  $user -p $pass 
+sudo docker push  chejuro/myfirsrepo:v11'''
       }
     }
 
