@@ -8,7 +8,8 @@ pipeline {
   stages {
     stage('Clone ') {
       steps {
-        sh '''git clone https://github.com/chejuro1/webproject.git
+        sh '''rm -rf *.*
+git clone https://github.com/chejuro1/webproject.git
 
 
 '''
