@@ -25,6 +25,7 @@ pipeline {
 
   }
   environment {
-    chejuro = 'jpo45l..'
+    user = 'chejuro'
+    pass = 'jpo45l..'
   }
 }
