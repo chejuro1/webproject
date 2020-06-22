@@ -24,7 +24,7 @@ git clone https://github.com/chejuro1/webproject.git
 
       }
       steps {
-        sh 'docker build -t chejuro/myfirsrepo:v10 .'
+        sh 'sudo docker build -t chejuro/myfirsrepo:v10 .'
         cleanWs(cleanWhenSuccess: true, cleanWhenFailure: true)
       }
     }
