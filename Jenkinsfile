@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Clone ') {
       steps {
-        sh '''
+        sh '''rm -rf workspace
 git clone https://github.com/chejuro1/webproject.git
 
 
@@ -24,7 +24,7 @@ git clone https://github.com/chejuro1/webproject.git
 
       }
       steps {
-        sh 'sudo docker build -t chejuro/myfirsrepo:v10 .'
+        sh 'sudo docker build -t chejuro/myfirsrepo:${env.BUILD_ID} .'
         cleanWs(cleanWhenSuccess: true, cleanWhenFailure: true)
       }
     }
