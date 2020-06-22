@@ -7,24 +7,18 @@ pipeline {
   }
   stages {
     stage('Clone ') {
-      parallel {
-        stage('Clone ') {
-          steps {
-            sh '''
+      steps {
+        sh '''
 git clone https://github.com/chejuro1/webproject.git
 
 
 '''
-          }
-        }
+      }
+    }
 
-        stage('Build images') {
-          steps {
-            sh '''cd /home/jenkins/workspace/webproject_master
-sudo docker build . -t chejuro/myfirsrepo:v10'''
-          }
-        }
-
+    stage('Build images') {
+      steps {
+        sh 'docker . -t chejuro/myfirsrepo:v10 '
       }
     }
 
