@@ -6,16 +6,6 @@ pipeline {
 
   }
   stages {
-    stage('Clone ') {
-      steps {
-        sh '''rm -rf /workspace
-git clone https://github.com/chejuro1/webproject.git
-
-
-'''
-      }
-    }
-
     stage('Build images') {
       agent {
         node {
