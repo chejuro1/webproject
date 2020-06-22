@@ -17,6 +17,12 @@ git clone https://github.com/chejuro1/webproject.git
     }
 
     stage('Build images') {
+      agent {
+        node {
+          label 'project'
+        }
+
+      }
       steps {
         sh 'docker . -t chejuro/myfirsrepo:v10 '
         cleanWs(cleanWhenSuccess: true, cleanWhenFailure: true)
