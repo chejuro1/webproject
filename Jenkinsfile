@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "hub.docker.com/chejuro/myfirsrepo"
+    registry = "chejuro/myfirsrepo"
     registryCredential = ‘chejuro’
   }
   agent any
