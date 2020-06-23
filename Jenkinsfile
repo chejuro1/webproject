@@ -1,18 +1,19 @@
 pipeline {
   environment {
     registry = "chejuro/myfirsrepo"
-    registryCredential = "chejuro"
+    registryCredential = ‘chejuro’
   }
   agent any
-   stages {
-     stage('Cloning Git') {
+  stages {
+    stage('Cloning Git') {
       steps {
         git 'https://github.com/chejuro1/webproject.git'
       }
-      stage('Building image') {
+    }
+    stage('Building image') {
       steps{
         script {
-         sudo docker.build registry + ":$BUILD_NUMBER"
+          docker.build registry + ":$BUILD_NUMBER"
         }
       }
     }
