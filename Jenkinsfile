@@ -8,7 +8,7 @@ pipeline {
     stage('Cloning Git') {
       steps {
         git 'https://github.com/chejuro1/webproject.git'
-        credentialsId: "094fb773-1039-46c7-9ac8-5bf558753660"
+        credentialsId: '094fb773-1039-46c7-9ac8-5bf558753660'
       }
     }
     stage('Building image') {
