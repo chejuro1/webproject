@@ -1,7 +1,7 @@
 pipeline {
   environment {
     registry = "chejuro/myfirsrepo"
-    registryCredential = ‘chejuro’
+    registryCredential = "chejuro"
   }
   agent any
   stages {
