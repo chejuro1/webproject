@@ -1,9 +1,10 @@
 pipeline {
   environment {
     registry = "chejuro/myfirsrepo"
-    registryCredential = ‘chejuro’
+    registryCredential = "chejuro"
   }
   agent any
+   stages {
       stage('Building image') {
       steps{
         script {
@@ -12,4 +13,4 @@ pipeline {
       }
     }
   }
-
+}
