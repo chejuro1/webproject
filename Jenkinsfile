@@ -1,32 +1,15 @@
 pipeline {
-  agent {
-    node {
-      label 'project'
-    }
-
-  }
-  stages {
-    stage('Build images') {
-      agent {
-        node {
-          label 'project'
-        }
-
-      }
-      environment {
-        chejuro = 'jpo45l..'
-      }
-      steps {
-        sh 'sudo docker build -t chejuro/myfirsrepo:v11 .'
-        cleanWs(cleanWhenSuccess: true, cleanWhenFailure: true, deleteDirs: true)
-        sh ''' 
-sudo docker push  chejuro/myfirsrepo:v10'''
-      }
-    }
-
-  }
   environment {
-    registry = 'https://hub.docker.com/chejuro/myfirsrepo'
-    registryCredential = 'chejuro'
+    registry = "hub.docker.com/chejuro/myfirsrepo"
+    registryCredential = ‘chejuro’
+  }
+  agent any
+      stage('Building image') {
+      steps{
+        script {
+          docker.build registry + ":$BUILD_NUMBER"
+        }
+      }
+    }
   }
 }
