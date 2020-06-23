@@ -2,12 +2,12 @@ pipeline {
   environment {
     registry = "chejuro/myfirsrepo"
     registryCredential = "dockerhub"
+    GITHUB_CREDENTIALS = credentials('094fb773-1039-46c7-9ac8-5bf558753660')
   }
   agent any
   stages {
     stage('Cloning Git') {
-      git branch: 'master', credentialsId: '094fb773-1039-46c7-9ac8-5bf558753660', url: 'https://github.com/chejuro1/webproject.git'
-      steps {
+            steps {
         git 'https://github.com/chejuro1/webproject.git'
       }
     }
