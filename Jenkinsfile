@@ -20,7 +20,7 @@ pipeline {
         sh 'sudo docker build -t chejuro/myfirsrepo:v11 .'
         cleanWs(cleanWhenSuccess: true, cleanWhenFailure: true, deleteDirs: true)
         sh ''' 
-sudo docker push  chejuro/myfirsrepo:v11'''
+sudo docker push  chejuro/myfirsrepo:v10'''
       }
     }
 
