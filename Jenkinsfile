@@ -26,7 +26,7 @@ sudo docker push  chejuro/myfirsrepo:v10'''
 
   }
   environment {
-    user = 'chejuro'
-    pass = 'jpo45l..'
+    registry = 'https://hub.docker.com/chejuro/myfirsrepo'
+    registryCredential = 'chejuro'
   }
 }
