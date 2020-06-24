@@ -27,12 +27,5 @@
 }
         }
       
-      stages {
-        stage('Deploy') {
-            steps {
-                sh 'helm list'
-            }
-        }
-    }
-    }
+         }
 }
