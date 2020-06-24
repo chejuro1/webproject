@@ -10,7 +10,8 @@
         }
         stage('docker build') {
             steps {
-                sh label: '', script: '''def customImage = docker.build("chejuro/myfirsrepo:${env.BUILD_ID}")
+            sh label: '', script: '''sudo docker build -t chejuro/myfirsrepo:${env.BUILD_ID .
+
 '''
             }
         }
