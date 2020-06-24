@@ -15,10 +15,13 @@
 '''
             }
         }
-        stage('Deploy') {
+        stage('Push image to docker hub') {
             steps {
-                echo 'Deploying....'
-            }
+           withDockerRegistry([ credentialsId: "dockerhub", url: "https://hub.docker.com/" ]) {
+      // following commands will be executed within logged docker registry
+         sh 'docker push chejuro/myfirsrepo:v12'
+   }
+}
         }
     }
 }
