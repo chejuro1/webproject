@@ -27,16 +27,19 @@
 }
         }
         stage('deploy') {
+          parallel {
+            stage('pull image'){
+            steps {
+               sh 'printenv'
+                }
+        }
+      stage('helm deploy') {
             
             steps {
                sh 'printenv'
                 }
         }
-      stage('end') {
-            
-            steps {
-               sh 'printenv'
-                }
+          }
         }
       }
 }
