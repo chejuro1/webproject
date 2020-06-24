@@ -2,7 +2,7 @@ pipeline {
   
   agent {
     node {
-        label 'projec'
+        label 'project'
         customWorkspace '/home/jenkins'
     }
 }
