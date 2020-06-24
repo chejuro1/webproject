@@ -17,10 +17,9 @@
         }
         stage('Push image to docker hub') {
             
+          
             steps {
-                sh "sudo chown root:jenkins /run/docker.sock"
-            }
-            steps {
+              sh "sudo chown root:jenkins /run/docker.sock"
            withDockerRegistry([ credentialsId: "dockerhub", url: "https://hub.docker.com/" ]) {
       // following commands will be executed within logged docker registry
          sh 'sudo docker push chejuro/myfirsrepo:v12'
