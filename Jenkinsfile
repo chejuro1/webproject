@@ -27,7 +27,7 @@
 }
         }
       stage('approval'){
-        step{ 
+        steps{ 
           script {
           def userInput = input(id: 'confirm', message: 'Apply Helm?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Apply Helm', name: 'confirm'] ])
         }
