@@ -6,8 +6,7 @@ pipeline {
         customWorkspace '/home/jenkins'
     }
 }
-  
- 
+   
     stages {
         stage('checkout') {
             steps {
@@ -15,5 +14,12 @@ pipeline {
             }
         }
     }
+      stage('docker build') {
+    // some block
+        steps {
+                sh label: '', script: '''def customImage = docker.build("chejuro/myfirsrepo:${env.BUILD_ID}")
+'''
+            }
+}
 
 }
