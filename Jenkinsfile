@@ -20,7 +20,7 @@
           
             steps {
               sh "sudo chown root:jenkins /run/docker.sock"
-           withDockerRegistry([ credentialsId: "dockerhub", url: "https://hub.docker.com/" ]) {
+           withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
       // following commands will be executed within logged docker registry
          sh 'sudo docker push chejuro/myfirsrepo:v12'
    }
