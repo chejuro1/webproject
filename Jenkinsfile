@@ -1,7 +1,13 @@
 pipeline {
-  node('project') {
-    // some block
-    
+  
+  agent {
+    node {
+        label 'projec'
+        customWorkspace '/home/jenkins'
+    }
+}
+  
+ 
     stages {
         stage('checkout') {
             steps {
@@ -9,5 +15,5 @@ pipeline {
             }
         }
     }
-}
+
 }
