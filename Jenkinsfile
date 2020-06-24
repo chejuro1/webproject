@@ -32,5 +32,11 @@
                sh 'printenv'
                 }
         }
+      stage('end') {
+            
+            steps {
+               sh 'printenv'
+                }
+        }
       }
 }
