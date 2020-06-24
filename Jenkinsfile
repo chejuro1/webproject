@@ -1,7 +1,7 @@
 
   pipeline {
     agent any
-
+   
     stages {
         stage('checkout') {
             steps {
@@ -26,5 +26,13 @@
    }
 }
         }
+      
+      stages {
+        stage('Deploy') {
+            steps {
+                sh 'helm list'
+            }
+        }
+    }
     }
 }
