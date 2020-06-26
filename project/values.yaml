@@ -5,8 +5,8 @@
 replicaCount: 1
 
 image:
-  repository: nginx
-  tag: stable
+  repository: chejuro/myfirsrepo
+  tag: v12
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
