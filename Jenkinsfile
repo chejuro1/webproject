@@ -47,8 +47,8 @@
           parallel {
             stage('pull image'){
             steps {
-              withKubeCredentials(kubectlCredentials: [[caCertificate: '', clusterName: 'kubernetes', contextName: 'kubernetes-admin@kubernetes', credentialsId: 'mykubernetescluster', namespace: 'jenkins', serverUrl: 'https://172.31.13.238:6443']]) {
-              sh 'kubectl get namespaces'
+              withKubeConfig(caCertificate: '', clusterName: 'kubernetes', contextName: 'kubernetes-admin@kubernetes', credentialsId: 'mykubernetescluster', namespace: 'jenkins', serverUrl: 'https://172.31.13.238:6443') {
+               sh 'kubectl get namespaces'
 }
                 }
         }
