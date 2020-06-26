@@ -1,5 +1,15 @@
 
   pipeline {
+    
+     environment {
+    PROJECT = "webproject"
+    APP_NAME = "webproject"
+    //FE_SVC_NAME = "${APP_NAME}-frontend"
+    CLUSTER = "kubernetes"
+    //CLUSTER_ZONE = "us-east1-d"
+    IMAGE_TAG = "chejuro/myfirsrepo:v12"
+    JENKINS_CRED = "${mykubernetescluster}"
+  }
     agent any
    
     stages {
@@ -37,13 +47,15 @@
           parallel {
             stage('pull image'){
             steps {
-               sh 'printenv'
+               withKubeConfig([credentialsId: 'mykubernetescluster', serverUrl: 'https://172.31.13.238:6443']) {
+               sh 'kubectl get namespaces'
+    }
                 }
         }
       stage('helm deploy') {
             
             steps {
-               sh 'kubectl get namespaces'
+               sh 'printenv'
                 }
         }
           }
