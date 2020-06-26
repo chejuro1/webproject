@@ -43,7 +43,7 @@
       stage('helm deploy') {
             
             steps {
-               sh 'printenv'
+               sh 'helm list'
                 }
         }
           }
