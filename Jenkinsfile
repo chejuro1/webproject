@@ -43,7 +43,7 @@
       stage('helm deploy') {
             
             steps {
-               sh 'helm list'
+               sh 'kubectl get namespaces'
                 }
         }
           }
