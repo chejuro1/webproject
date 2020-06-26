@@ -49,7 +49,7 @@
             steps {
               withKubeConfig(caCertificate: '', clusterName: 'kubernetes', contextName: 'kubernetes-admin@kubernetes', credentialsId: 'mykubernetescluster', namespace: 'jenkins', serverUrl: 'https://172.31.13.238:6443') {
                sh 'kubectl get namespaces'
-                sh 'helm install --debug  ./project' --name project --namespace jenkins '
+                sh 'helm install --debug  ./project  --name project --namespace jenkins '
                  sh 'helm status project'
 }
                 }
