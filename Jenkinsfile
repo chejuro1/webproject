@@ -50,7 +50,7 @@
               withKubeConfig(caCertificate: '', clusterName: 'kubernetes', contextName: 'kubernetes-admin@kubernetes', credentialsId: 'mykubernetescluster', namespace: 'jenkins', serverUrl: 'https://172.31.13.238:6443') {
                sh 'kubectl get namespaces'
                 sh 'helm install --debug  ./project  --name project --namespace jenkins '
-                 sh 'helm status project'
+                 
 }
                 }
         }
@@ -59,9 +59,27 @@
             TOOL = tool name: '<tool>', type:     'com.cloudbees.jenkins.plugins.customtools.CustomTool'
                     }
             steps {
+               sh 'helm status project'
+                }
+        }
+            stage('ansible') {
+             environment {
+            TOOL = tool name: 'ansible', type: 'org.jenkinsci.plugins.ansible.AnsibleInstallation'
+                    }
+            steps {
                sh 'printenv'
                 }
         }
+            
+            stage('Terraform deploy') {
+             environment {
+            TOOL = tool name: 'terraform', type: 'terraform'
+                    }
+            steps {
+               sh 'terraform plan '
+                }
+        }
+            
           }
         }
       }
