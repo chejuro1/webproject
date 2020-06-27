@@ -55,9 +55,7 @@
                 }
         }
       stage('helm deploy') {
-             environment {
-            TOOL = tool name: '<tool>', type:     'com.cloudbees.jenkins.plugins.customtools.CustomTool'
-                    }
+            
             steps {
                sh 'helm status project'
                 }
