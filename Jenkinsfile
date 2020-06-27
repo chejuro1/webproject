@@ -76,7 +76,7 @@
             TOOL = tool name: 'terraform', type: 'terraform'
                     }
             steps {
-               sh 'terraform plan '
+               sh "terraform --version"
                 }
         }
             
