@@ -1,68 +1,44 @@
-
-  pipeline {
-    
-     environment {
-    PROJECT = "webproject"
-    APP_NAME = "webproject"
-    //FE_SVC_NAME = "${APP_NAME}-frontend"
-    CLUSTER = "kubernetes"
-    //CLUSTER_ZONE = "us-east1-d"
-    IMAGE_TAG = "chejuro/myfirsrepo:v12"
-    JENKINS_CRED = "${mykubernetescluster}"
-  }
+pipeline {
     agent any
-   
+    environment {
+        PROJECT_ID = 'PROJECT-ID'
+        LOCATION = 'CLUSTER-LOCATION'
+        CREDENTIALS_ID = 'gke'
+        CLUSTER_NAME_TEST = 'CLUSTER-NAME-1'
+        CLUSTER_NAME_PROD = 'CLUSTER-NAME-2'          
+    }
     stages {
-        stage('checkout') {
+        stage("Checkout code") {
             steps {
-                git credentialsId: '094fb773-1039-46c7-9ac8-5bf558753660', url: 'https://github.com/chejuro1/webproject.git'
+                checkout scm
             }
         }
-        stage('docker build') {
+        stage("Build image") {
             steps {
-              sh label: '', script: '''sudo docker build -t chejuro/myfirsrepo:v12 .
-
-'''
-            }
-        }
-        stage('Push image to docker hub') {
-            
-          
-            steps {
-              sh "sudo chown root:jenkins /run/docker.sock"
-           withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
-      // following commands will be executed within logged docker registry
-         sh 'sudo docker push chejuro/myfirsrepo:v12'
-   }
-}
-        }
-      stage('approval'){
-        steps{ 
-          script {
-          def userInput = input(id: 'confirm', message: 'Apply Helm?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Apply Helm', name: 'confirm'] ])
-        }
-        }
-      }
-        stage('deploy') {
-          parallel {
-            stage('pull image'){
-            steps {
-              withKubeConfig(caCertificate: '', clusterName: 'kubernetes', contextName: 'kubernetes-admin@kubernetes', credentialsId: 'mykubernetescluster', namespace: 'jenkins', serverUrl: 'https://172.31.13.238:6443') {
-               sh 'kubectl get namespaces'
-                sh 'helm install --debug  ./project  --name project --namespace jenkins '
-                 sh 'helm status project'
-}
+                script {
+                    myapp = docker.build("DOCKER-HUB-USERNAME/hello:${env.BUILD_ID}")
                 }
+            }
         }
-      stage('helm deploy') {
-             environment {
-            TOOL = tool name: '<tool>', type:     'com.cloudbees.jenkins.plugins.customtools.CustomTool'
+        stage("Push image") {
+            steps {
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+                            myapp.push("latest")
+                            myapp.push("${env.BUILD_ID}")
                     }
-            steps {
-               sh 'printenv'
                 }
+            }
+        }       
+        stage('Deploy to GKE test cluster') {
+            steps{
+                sh "sed -i 's/hello:latest/hello:${env.BUILD_ID}/g' deployment.yaml"
+                step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME_TEST, location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
+            }
         }
-          }
-        }
-      }
-}
+        stage('Deploy to GKE production cluster') {
+            steps{
+                input message:"Proceed with final deployment?"
+                step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME_PROD, location: env.LOCATION, manifestPattern: 'deployment.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
+            }
+        }   
