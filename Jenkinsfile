@@ -114,8 +114,8 @@
                 sh "terraform apply -input=false tfplan"
                  }
                        }
-    }
-        }
+    //}
+        //}
 
     post {
         always {
@@ -144,7 +144,7 @@
         //}
             
           
-    } 
+    //} 
         
       }
 }
