@@ -88,7 +88,7 @@
             TOOL = tool name: 'terraform', type: 'terraform'
            
                    }
-              parallel{
+              
                 stage('plan'){
                    steps {
                     sh "terraform init"
@@ -102,7 +102,7 @@
                   
                          }
                       }
-              }
+              
         }
             
           
