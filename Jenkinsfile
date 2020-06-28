@@ -80,7 +80,7 @@
             TOOL = tool name: 'terraform', type: 'terraform'
                     }
             steps {
-               sh "terraform --version"
+               sh "printenv"
                 }
         }
             
