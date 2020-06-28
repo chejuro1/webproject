@@ -30,8 +30,8 @@
               sh label: '', script: '''sudo docker build -t chejuro/myfirsrepo:v12 .
 
 '''
+              }
             }
-        }
         stage('Push image to docker hub') {
             
           
@@ -40,48 +40,47 @@
            withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
       // following commands will be executed within logged docker registry
          sh 'sudo docker push chejuro/myfirsrepo:v12'
-   }
-}
+                  }
+            }
         }
-      stage('approval'){
+       stage('approval'){
         steps{ 
           script {
           def userInput = input(id: 'confirm', message: 'Apply Helm?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Apply Helm', name: 'confirm'] ])
-        }
-        }
-      }
-        stage('deploy') {
-          parallel {
-            stage('kubectl'){
-            steps {
-              withKubeConfig(caCertificate: '', clusterName: 'kubernetes', contextName: 'kubernetes-admin@kubernetes', credentialsId: 'mykubernetescluster', namespace: 'jenkins', serverUrl: 'https://172.31.13.238:6443') {
-               sh 'kubectl get namespaces'
-                //sh 'helm install --debug  ./project  --name project --namespace jenkins '
-              
-                 }
-                }
-              }
-      stage('helm deploy') {
-            
-            steps {
-                withKubeConfig(caCertificate: '', clusterName: 'kubernetes', contextName: 'kubernetes-admin@kubernetes', credentialsId: 'mykubernetescluster', namespace: 'jenkins', serverUrl: 'https://172.31.13.238:6443') {
-               sh 'kubectl get namespaces'
-                //sh 'helm install --debug  ./project  --name project --namespace jenkins '
-               sh 'helm ls --all '
-                 
-}
-                }
-        }
-            stage('ansible') {
-             environment {
-            TOOL = tool name: 'ansible', type: 'org.jenkinsci.plugins.ansible.AnsibleInstallation'
-                    }
-            steps {
-               sh 'printenv'
-                }
-        }
+            }
+             }
           }
-          stage('terraform'){
+       stage('deploy') {
+          parallel {
+             stage('kubectl'){
+                   steps {
+                        withKubeConfig(caCertificate: '', clusterName: 'kubernetes', contextName: 'kubernetes-admin@kubernetes', credentialsId: 'mykubernetescluster', namespace: 'jenkins', serverUrl: 'https://172.31.13.238:6443') {
+                        sh 'kubectl get namespaces'
+                        //sh 'helm install --debug  ./project  --name project --namespace jenkins '
+                                   }
+                     }
+                              }
+             stage('helm deploy') {
+            
+                   steps {
+                         withKubeConfig(caCertificate: '', clusterName: 'kubernetes', contextName: 'kubernetes-admin@kubernetes', credentialsId: 'mykubernetescluster', namespace: 'jenkins', serverUrl: 'https://172.31.13.238:6443') {
+                         sh 'kubectl get namespaces'
+                        //sh 'helm install --debug  ./project  --name project --namespace jenkins '
+                        sh 'helm ls --all '
+                 
+                              }
+                             }
+                         }
+                stage('ansible') {
+                environment {
+                 TOOL = tool name: 'ansible', type: 'org.jenkinsci.plugins.ansible.AnsibleInstallation'
+                           }
+                    steps {
+                     sh 'printenv'
+                         }
+                               }
+          }
+          //stage('terraform'){
            stage('Plan') {
             steps {
                 script {
@@ -113,8 +112,8 @@
         stage('Apply') {
             steps {
                 sh "terraform apply -input=false tfplan"
-            }
-        }
+                 }
+                       }
     }
         }
 
