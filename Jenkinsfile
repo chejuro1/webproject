@@ -89,10 +89,10 @@
            
                    }
            steps {
-             withCredentials { Env.AWS_ACCESS_KEY_ID , Env.AWS_SECRET_ACCESS_KEY
+            
               sh "terraform init"
                 sh "terraform plan"
-                 }
+                 
                
                 }
                 steps {
