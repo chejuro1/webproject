@@ -89,20 +89,16 @@
            
                    }
               
-                stage('plan'){
+               
                    steps {
                     sh "terraform init"
                     sh "terraform plan"
-                              
+                     sh "terraform apply"         
                        }
-                }
-                stage('apply'){
-                   steps {
-                        sh "terraform apply"
-                  
-                         }
-                      }
               
+                
+                   
+                                    
         }
             
           
