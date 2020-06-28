@@ -14,9 +14,12 @@ pipeline {
             }
         }
         stage("Build image") {
+            
             steps {
                 script {
-                    myapp = docker.build("DOCKER-HUB-USERNAME/hello:${env.BUILD_ID}")
+                    withDockerRegistry(credentialsId: 'dockerhub', toolName: 'docker '){
+                    myapp = docker.build("chejuro/myfirsrepo:${env.BUILD_ID}")
+                    }
                 }
             }
         }
