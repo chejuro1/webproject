@@ -95,7 +95,7 @@
                  
                
                 }
-                steps {
+           steps {
                sh "terraform apply"
                
                 }
@@ -105,4 +105,4 @@
     } 
         
       }
-}
+//}
