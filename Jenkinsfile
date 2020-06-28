@@ -88,17 +88,20 @@
             TOOL = tool name: 'terraform', type: 'terraform'
            
                    }
-           steps {
-            
-              sh "terraform init"
-                sh "terraform plan"
-                 
-               
+              parallel{
+                stage('plan'){
+                   steps {
+                    sh "terraform init"
+                    sh "terraform plan"
+                              
+                       }
                 }
-           steps {
-               sh "terraform apply"
-               
-                }
+                stage('apply){
+                   steps {
+                        sh "terraform apply"
+                  
+                         }
+                      }
         }
             
           
