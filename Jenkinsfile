@@ -78,6 +78,8 @@
             stage('Terraform deploy') {
              environment {
             TOOL = tool name: 'terraform', type: 'terraform'
+            AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
+            AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
                     }
             steps {
                sh "printenv"
