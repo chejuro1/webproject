@@ -17,7 +17,7 @@ pipeline {
             
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'dockerhub', toolName: 'docker '){
+                    withDockerRegistry(credentialsId: 'dockerhub'){
                     myapp = docker.build("chejuro/myfirsrepo:${env.BUILD_ID}")
                     }
                 }
