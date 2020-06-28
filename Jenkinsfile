@@ -96,7 +96,7 @@
                               
                        }
                 }
-                stage('apply){
+                stage('apply'){
                    steps {
                         sh "terraform apply"
                   
