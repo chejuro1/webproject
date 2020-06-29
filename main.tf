@@ -16,5 +16,4 @@ resource "aws_instance" "Jenkins" {
 tags = {
     Name = "jenkins-master"
   }
- k
-  }
+   }
