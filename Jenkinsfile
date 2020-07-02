@@ -5,7 +5,7 @@
     stage{
       stage(ansible){
       step{
-        
+        sh "printenv"
       }
     }
     }
