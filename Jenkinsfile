@@ -8,17 +8,19 @@ pipeline {
                  TOOL = tool name: 'ansible', type: 'org.jenkinsci.plugins.ansible.AnsibleInstallation'
                            }
             steps {
-                echo 'Building..'
+               sh ' echo 'Building..''
+                sh 'printenv'
+                
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+               sh ' echo 'Testing..''
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+              sh '  echo 'Deploying....''
             }
         }
     }
