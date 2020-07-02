@@ -2,8 +2,8 @@
   pipeline {
     
     agent any
-    stage{
-      stage(ansible){
+    stages{
+      stage('ansible'){
       step{
         sh "printenv"
       }
