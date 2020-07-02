@@ -15,12 +15,12 @@ pipeline {
         }
         stage('Test') {
             steps {
-               sh ' echo 'Testing..''
+               sh "which ansible"
             }
         }
         stage('Deploy') {
             steps {
-              sh '  echo 'Deploying....''
+              sh "printenv"
             }
         }
     }
