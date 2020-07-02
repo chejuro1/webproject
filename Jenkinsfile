@@ -83,7 +83,7 @@
           
           
             
-            stage('Terraform deploy') {
+            stage('Terraform connect') {
              environment {
             TOOL = tool name: 'terraform', type: 'terraform'
            
@@ -91,19 +91,49 @@
               
                
                    steps {
-                     
+                     sh 'mkdir -p creds'
+                    sh 'echo $AWS_ACCESS_KEY_ID  | base64 -d > ./creds/serviceaccount.json' 
+                    sh 'echo $ AWS_SECRET_ACCESS_KEY | base64 -d >> ./creds/serviceaccount.json' 
                     
-                    sh "terraform init"
-                    sh "terraform plan"
-                     sh "terraform apply"         
+                      
                        }
-              
-                
-                   
+                    
                                     
-        }
+                 }
             
-          
+           stage('TF Plan') {
+       steps {
+         
+           sh 'terraform init'
+           sh 'terraform plan -out myplan'
+         
+           }
+     } 
+      
+            stage('Approval') {
+      steps {
+        script {
+          def userInput = input(id: 'confirm', message: 'Apply Terraform?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Apply terraform', name: 'confirm'] ])
+        }
+      }
+    }
+            
+            
+            
+            stage('TF Apply') {
+      steps {
+        container('terraform') {
+          sh terraform apply -input=false myplan'
+        }
+      }
+    }
+  
+
+            
+            
+            
+            
+            
     } 
         
       }
