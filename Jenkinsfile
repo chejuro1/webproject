@@ -10,7 +10,8 @@ pipeline {
             steps {
               
                 sh 'printenv'
-                
+                sh 'ansible-galaxy search *jenkins*'
+                sh 'ansible-galaxy list'
             }
         }
         stage('Test') {
