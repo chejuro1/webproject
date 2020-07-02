@@ -2,12 +2,13 @@
   pipeline {
     
     agent any
-    stage(ansible){
+    stage{
+      stage(ansible){
       step{
         
       }
     }
-    
+    }
     
     
   }
