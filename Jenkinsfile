@@ -8,7 +8,7 @@ pipeline {
                  TOOL = tool name: 'ansible', type: 'org.jenkinsci.plugins.ansible.AnsibleInstallation'
                            }
             steps {
-               sh ' echo 'Building..''
+              
                 sh 'printenv'
                 
             }
