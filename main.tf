@@ -2,8 +2,7 @@
 provider "aws" {
   region = "us-east-2"
  
-#   access_key = ""
-#   secret_key = ""
+ shared_credentials_file = "./creds/serviceaccount.json"
 
 }
 
