@@ -1,14 +1,24 @@
 pipeline {
   
+   agent any
   environment {
     TF_WORKSPACE = 'dev' //Sets the Terraform Workspace
     TF_IN_AUTOMATION = 'true'
      AWS_ACCESS_KEY_ID  = credentials('jenkins-aws-secret-key-id')
     AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
+    SVC_ACCOUNT_KEY = credentials('terraform-auth')
   }
-  agent any 
+  
   
   stages {
+    
+    stage('Checkout') {
+      steps {
+        checkout scm
+        sh 'mkdir -p creds'
+        sh 'echo $SVC_ACCOUNT_KEY | base64 -d > ./creds/serviceaccount.json'
+      }
+    }
     stage('Terraform Init') {
       
       environment {
