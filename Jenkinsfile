@@ -9,8 +9,8 @@ pipeline {
                            }
             steps {
               
-                sh 'printenv'
-                sh 'ansible-galaxy search *jenkins*'
+             
+                sh 'ansible ansible all -m ping -u ubuntu
                 sh 'ansible-galaxy list'
             }
         }
