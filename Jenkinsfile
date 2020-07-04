@@ -10,7 +10,7 @@ pipeline {
             steps {
               
              
-                sh 'ansible ansible all -m ping -u ubuntu
+                sh 'ansible ansible all -m ping -u ubuntu'
                 sh 'ansible-galaxy list'
             }
         }
