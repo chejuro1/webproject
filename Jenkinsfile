@@ -1,141 +1,40 @@
-
-  pipeline {
-    
-     environment {
-    PROJECT = "webproject"
-    APP_NAME = "webproject"
-    //FE_SVC_NAME = "${APP_NAME}-frontend"
-    CLUSTER = "kubernetes"
-    //CLUSTER_ZONE = "us-east1-d"
-    IMAGE_TAG = "chejuro/myfirsrepo:v12"
-    JENKINS_CRED = "${mykubernetescluster}"
-    AWS_ACCESS_KEY_ID     = credentials('jenkins-aws-secret-key-id')
-    AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
-    TF_IN_AUTOMATION      = '1'
+pipeline {
+  parameters {
+    password (name: 'AWS_ACCESS_KEY_ID')
+    password (name: 'AWS_SECRET_ACCESS_KEY')
   }
-    agent any
-     parameters {
-        string(name: 'environment', defaultValue: 'default', description: 'Workspace/environment file to use for deployment')
-        string(name: 'version', defaultValue: '', description: 'Version variable to pass to Terraform')
-        booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after generating plan?')
-     }
-    stages {
-        stage('checkout') {
-            steps {
-                git credentialsId: '094fb773-1039-46c7-9ac8-5bf558753660', url: 'https://github.com/chejuro1/webproject.git'
-            }
-        }
-        stage('docker build') {
-            steps {
-              sh label: '', script: '''sudo docker build -t chejuro/myfirsrepo:v12 .
-
+  environment {
+    TF_WORKSPACE = 'dev' //Sets the Terraform Workspace
+    TF_IN_AUTOMATION = 'true'
+    AWS_ACCESS_KEY_ID = "${params.AWS_ACCESS_KEY_ID}"
+    AWS_SECRET_ACCESS_KEY = "${params.AWS_SECRET_ACCESS_KEY}"
+  }
+  stages {
+    stage('Terraform Init') {
+      steps {
+        sh "${env.TERRAFORM_HOME}/terraform init -input=false"
+      }
+    }
+    stage('Terraform Plan') {
+      steps {
+        sh "${env.TERRAFORM_HOME}/terraform plan -out=tfplan -input=false -var-file='dev.tfvars'"
+      }
+    }
+    stage('Terraform Apply') {
+      steps {
+        input 'Apply Plan'
+        sh "${env.TERRAFORM_HOME}/terraform apply -input=false tfplan"
+      }
+    }
+    stage('AWSpec Tests') {
+      steps {
+          sh '''#!/bin/bash -l
+bundle install --path ~/.gem
+bundle exec rake spec || true
 '''
-              }
-            }
-        stage('Push image to docker hub') {
-            
-          
-            steps {
-              sh "sudo chown root:jenkins /run/docker.sock"
-           withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
-      // following commands will be executed within logged docker registry
-         sh 'sudo docker push chejuro/myfirsrepo:v12'
-                  }
-            }
-        }
-       stage('approval'){
-        steps{ 
-          script {
-          def userInput = input(id: 'confirm', message: 'Apply Helm?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Apply Helm', name: 'confirm'] ])
-            }
-             }
-          }
-       stage('deploy') {
-          parallel {
-             stage('kubectl'){
-                   steps {
-                        withKubeConfig(caCertificate: '', clusterName: 'kubernetes', contextName: 'kubernetes-admin@kubernetes', credentialsId: 'mykubernetescluster', namespace: 'jenkins', serverUrl: 'https://172.31.13.238:6443') {
-                        sh 'kubectl get namespaces'
-                        //sh 'helm install --debug  ./project  --name project --namespace jenkins '
-                                   }
-                     }
-                              }
-             stage('helm deploy') {
-            
-                   steps {
-                         withKubeConfig(caCertificate: '', clusterName: 'kubernetes', contextName: 'kubernetes-admin@kubernetes', credentialsId: 'mykubernetescluster', namespace: 'jenkins', serverUrl: 'https://172.31.13.238:6443') {
-                         sh 'kubectl get namespaces'
-                        //sh 'helm install --debug  ./project  --name project --namespace jenkins '
-                        sh 'helm ls --all '
-                 
-                              }
-                             }
-                         }
-                stage('ansible') {
-                environment {
-                 TOOL = tool name: 'ansible', type: 'org.jenkinsci.plugins.ansible.AnsibleInstallation'
-                           }
-                    steps {
-                     sh 'printenv'
-                         }
-                               }
-          
-          
-          
-            
-            stage('Terraform connect') {
-             environment {
-            TOOL = tool name: 'terraform', type: 'terraform'
-           
-                   }
-              
-               
-                   steps {
-                     sh 'mkdir -p creds'
-                    sh 'echo $AWS_ACCESS_KEY_ID  | base64 -d > ./creds/serviceaccount.json' 
-                    sh 'echo $ AWS_SECRET_ACCESS_KEY | base64 -d >> ./creds/serviceaccount.json' 
-                    
-                      
-                       }
-                    
-                                    
-                 }
-            
-           stage('TF Plan') {
-       steps {
-         
-           sh 'terraform init'
-           sh 'terraform plan -out myplan'
-         
-           }
-     } 
-      
-            stage('Approval') {
-      steps {
-        script {
-          def userInput = input(id: 'confirm', message: 'Apply Terraform?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Apply terraform', name: 'confirm'] ])
-        }
-      }
-    }
-            
-            
-            
-            stage('TF Apply') {
-      steps {
-       
-          sh 'terraform apply -input=false myplan'
-        
-      }
-    }
-  
 
-            
-            
-            
-            
-            
-    } 
-        
+        junit(allowEmptyResults: true, testResults: '**/testResults/*.xml')
       }
-}
+    }
   }
+}
