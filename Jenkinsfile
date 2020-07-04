@@ -1,7 +1,7 @@
 pipeline {
   parameters {
-    password (name: 'AWS_ACCESS_KEY_ID')
-    password (name: 'AWS_SECRET_ACCESS_KEY')
+    password (name: 'jenkins-aws-secret-key-id')
+    password (name: 'jenkins-aws-secret-access-key')
   }
   environment {
     TF_WORKSPACE = 'dev' //Sets the Terraform Workspace
