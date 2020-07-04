@@ -13,6 +13,12 @@ pipeline {
   
   stages {
     stage('Terraform Init') {
+      
+      environment {
+            TOOL = tool name: 'terraform', type: 'terraform'
+           
+                   }
+      
       steps {
         sh "/home/jenkins/terraform init -input=false"
       }
@@ -22,6 +28,14 @@ pipeline {
         sh "/home/jenkins/terraform plan -out=tfplan -input=false -var-file='dev.tfvars'"
       }
     }
+    
+    stage('approval'){
+        steps{ 
+          script {
+          def userInput = input(id: 'confirm', message: 'Apply Terraform?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Apply Terraform', name: 'confirm'] ])
+            }
+             }
+          }
     stage('Terraform Apply') {
       steps {
         input 'Apply Plan'
