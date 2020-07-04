@@ -14,7 +14,7 @@ provider "aws" {
 # }
 
 resource "aws_instance" "Jenkins" {
-  ami           = var.image_id # us-east-2
+  ami           = "ami-07b11e59bc74961b5" # us-east-2
   instance_type = "t2.micro"
   key_name ="chejurokeypair"
 
