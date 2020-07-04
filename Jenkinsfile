@@ -4,8 +4,7 @@ pipeline {
   environment {
     TF_WORKSPACE = 'dev' //Sets the Terraform Workspace
     TF_IN_AUTOMATION = 'true'
-     AWS_ACCESS_KEY_ID  = credentials('jenkins-aws-secret-key-id')
-    AWS_SECRET_ACCESS_KEY = credentials('jenkins-aws-secret-access-key')
+    
     SVC_ACCOUNT_KEY = credentials('terraform-auth')
   }
   
@@ -15,7 +14,7 @@ pipeline {
     stage('Checkout') {
       steps {
         checkout scm
-        sh 'mkdir -p creds'
+        sh 'sudo mkdir -p creds'
         sh 'echo $SVC_ACCOUNT_KEY | base64 -d > ./creds/serviceaccount.json'
       }
     }
@@ -33,9 +32,7 @@ pipeline {
     stage('Terraform Plan') {
       steps {
         
-       sh "export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID"
-        sh "export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY"
-         sh " export AWS_DEFAULT_REGION='us-east-2' "
+      
         sh "/home/jenkins/terraform plan -out=tfplan -input=false "
       }
     }
