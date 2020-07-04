@@ -1,4 +1,9 @@
 
+
+  
+  
+
+
   pipeline {
     
      environment {
@@ -137,5 +142,4 @@
     } 
         
       }
-}
-  }
+
