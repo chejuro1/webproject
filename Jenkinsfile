@@ -25,7 +25,7 @@ pipeline {
     }
     stage('Terraform Plan') {
       steps {
-        sh "/home/jenkins/terraform plan -out=tfplan -input=false  '"
+        sh "/home/jenkins/terraform plan -out=tfplan -input=false "
       }
     }
     
