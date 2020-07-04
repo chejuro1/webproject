@@ -26,8 +26,7 @@ pipeline {
     stage('Terraform Plan') {
       steps {
         
-         sh 'echo $AWS_ACCESS_KEY_ID  | base64 -d > $HOME/.aws/credentials/serviceaccount.json' 
-         sh 'echo $AWS_SECRET_ACCESS_KEY | base64 -d >> $HOME/.aws/credentials/serviceaccount.json'
+       
         sh "/home/jenkins/terraform plan -out=tfplan -input=false "
       }
     }
