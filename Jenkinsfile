@@ -11,7 +11,7 @@ pipeline {
               
              
                 sh 'ansible all -m ping -u ubuntu'
-                sh 'ansible-galaxy list'
+                sh 'ansible-playbook -i inventory.ini  verify-host.yml --syntax-check'
             }
         }
         stage('Test') {
