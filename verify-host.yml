@@ -1,5 +1,5 @@
 ---
-- hosts: py3-hosts
+- hosts: Jenkins-hosts
   remote_user: root
   tasks:
   - name: Update and upgrade apt packages
