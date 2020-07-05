@@ -11,8 +11,8 @@ pipeline {
               
              
                 sh 'ansible all -m ping -u ubuntu'
-                sh 'ansible-playbook -i inventory.ini  verify-host.yml --syntax-check'
-               //sh 'sudo dpkg --configure -a '
+                sh 'ansible-playbook  playbook.yml --syntax-check'
+                 
             }
         }
          stage('approval'){
@@ -24,8 +24,8 @@ pipeline {
           }
         stage('Test') {
             steps {
-                sh "sudo dpkg --configure -a "
-               sh "ansible-playbook -i inventory.ini  verify-host.yml "
+                sh "ansible-galaxy install docker"
+               sh "ansible-playbook playbook.yml "
             }
         }
         stage('Deploy') {
