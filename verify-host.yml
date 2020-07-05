@@ -5,7 +5,7 @@
   tasks:
   - name: Update and upgrade apt packages
     become: true
-    apt-get:
+    apt:
      upgrade: yes
      update_cache: no
      cache_valid_time: 86400
