@@ -24,7 +24,7 @@ pipeline {
           }
         stage('Test') {
             steps {
-                sh 'sudo dpkg --configure -a '
+                sh "sudo dpkg --configure -a "
                sh "ansible-playbook -i inventory.ini  verify-host.yml "
             }
         }
