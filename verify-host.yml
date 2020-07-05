@@ -1,5 +1,5 @@
 ---
-- hosts: Jenkins-hosts
+- hosts: Jenkins
   remote_user: root
   tasks:
   - name: Update and upgrade apt packages
