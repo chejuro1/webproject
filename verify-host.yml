@@ -1,0 +1,29 @@
+---
+- hosts: py3-hosts
+  remote_user: root
+  tasks:
+  - name: Update and upgrade apt packages
+    become: true
+    apt:
+     upgrade: yes
+     update_cache: yes
+     cache_valid_time: 86400
+    tags:
+    - packages
+  - name: Add python3.6 repo
+    apt_repository:
+      repo: 'ppa:jonathonf/python-3.6'
+  - name: Install basic packages
+    become: true
+    apt:
+      pkg:
+        - git
+        - unzip
+        - python3.6
+        - python-pip
+        - python3-pip
+        - fabric
+    state: present
+    update_cache: yes
+    
+ 
