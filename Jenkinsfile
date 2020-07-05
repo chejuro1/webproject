@@ -14,9 +14,16 @@ pipeline {
                 sh 'ansible-playbook -i inventory.ini  verify-host.yml --syntax-check'
             }
         }
+         stage('approval'){
+        steps{ 
+          script {
+          def userInput = input(id: 'confirm', message: 'Apply ansible?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Apply ansible', name: 'confirm'] ])
+            }
+             }
+          }
         stage('Test') {
             steps {
-               sh "which ansible"
+               sh "ansible-playbook -i inventory.ini  verify-host.yml "
             }
         }
         stage('Deploy') {
