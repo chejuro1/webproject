@@ -1,0 +1,4 @@
+---
+- hosts: Jenkins
+  roles:
+    - docker

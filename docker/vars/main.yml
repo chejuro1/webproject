@@ -1,0 +1,7 @@
+---
+# vars file for docker
+vars:
+ ansible_distribution|lower: linux/ubuntu 
+ ansible_distribution_release}:  $(lsb_release -cs)
+ item: docker
+
