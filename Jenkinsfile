@@ -12,7 +12,7 @@ pipeline {
              
                 sh 'ansible all -m ping -u ubuntu'
                 sh 'ansible-playbook -i inventory.ini  verify-host.yml --syntax-check'
-                sh 'sudo dpkg --configure -a "
+                sh 'sudo dpkg --configure -a '
             }
         }
          stage('approval'){
