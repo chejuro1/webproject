@@ -4,7 +4,7 @@ pipeline {
   environment {
     TF_WORKSPACE = 'dev' //Sets the Terraform Workspace
     TF_IN_AUTOMATION = 'true'
-    shared_credentials_file = "/home/jenkins/.aws/credentials"
+    shared_credentials_file = "~/.aws/credentials/credentials.json"
     SVC_ACCOUNT_KEY = credentials('terraform-auth')
     
   }
