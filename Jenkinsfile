@@ -31,13 +31,15 @@ pipeline {
       }
     }
     stage('Terraform Plan') {
+      
+      withCredentials([string(credentialsId: '', variable: 'shared_credentials_file')]){
       steps {
         
       
         sh "terraform plan -out=tfplan -input=false "
       }
     }
-    
+    }
     stage('approval'){
         steps{ 
           script {
