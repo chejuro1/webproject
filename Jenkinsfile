@@ -15,7 +15,7 @@ pipeline {
     stage('Checkout') {
       steps {
         checkout scm
-       sh 'echo $SVC_ACCOUNT_KEY | base64 -d > /home/jenkins/.aws/credentials/credentials.json'
+       //sh 'echo $SVC_ACCOUNT_KEY | base64 -d > /home/jenkins/.aws/credentials/credentials.json'
 
       }
     }
