@@ -3,9 +3,8 @@ provider "aws" {
   region = "us-east-2"
  version = "~> 2.0"
  
- #access_key = "${var.aws_access_key}"
- #secret_key = "${var.aws_secret_key}"
- shared_credentials_file = "/Users/jenkins/.creds/serviceaccount.json"
+ 
+ shared_credentials_file = "~/.aws/credentials"
   profile= "customprofile"
   }
 
