@@ -5,7 +5,7 @@ pipeline {
     TF_WORKSPACE = 'dev' //Sets the Terraform Workspace
     TF_IN_AUTOMATION = 'true'
     
-    SVC_ACCOUNT_KEY = credentials('terraform-auth')
+    
   }
   
   
@@ -15,7 +15,7 @@ pipeline {
       steps {
         checkout scm
         sh 'sudo mkdir -p creds'
-        sh 'echo $SVC_ACCOUNT_KEY | base64 -d > ./creds/serviceaccount.json'
+
       }
     }
     stage('Terraform Init') {
