@@ -34,12 +34,12 @@ pipeline {
       
      
       steps {
-         withCredentials([string(credentialsId: '', variable: 'SVC_ACCOUNT_KEY')]){
+        
       
         sh "terraform plan -out=tfplan -input=false "
       }
     }
-    }
+    
     stage('approval'){
         steps{ 
           script {
