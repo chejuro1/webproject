@@ -32,9 +32,9 @@ pipeline {
     }
     stage('Terraform Plan') {
       
-      withCredentials([string(credentialsId: '', variable: 'shared_credentials_file')]){
+     
       steps {
-        
+         withCredentials([string(credentialsId: '', variable: 'shared_credentials_file')]){
       
         sh "terraform plan -out=tfplan -input=false "
       }
