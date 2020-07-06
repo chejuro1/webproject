@@ -34,7 +34,7 @@ pipeline {
       
      
       steps {
-         withCredentials([string(credentialsId: '', variable: 'shared_credentials_file')]){
+         withCredentials([string(credentialsId: '', variable: 'SVC_ACCOUNT_KEY')]){
       
         sh "terraform plan -out=tfplan -input=false "
       }
