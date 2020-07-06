@@ -27,14 +27,14 @@ pipeline {
                    }
       
       steps {
-        sh "/home/jenkins/terraform init -input=false"
+        sh "terraform init -input=false"
       }
     }
     stage('Terraform Plan') {
       steps {
         
       
-        sh "/home/jenkins/terraform plan -out=tfplan -input=false "
+        sh "terraform plan -out=tfplan -input=false "
       }
     }
     
