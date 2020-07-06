@@ -5,7 +5,7 @@ provider "aws" {
  
  
  shared_credentials_file = "~/.aws/credentials"
-  profile= "customprofile"
+  profile                 = "chejuro"
   }
 
 # resource "aws_key_pair" "deployer" {
