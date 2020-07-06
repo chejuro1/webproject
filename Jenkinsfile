@@ -5,6 +5,7 @@ pipeline {
     TF_WORKSPACE = 'dev' //Sets the Terraform Workspace
     TF_IN_AUTOMATION = 'true'
     shared_credentials_file = "/home/jenkins/.aws/credentials"
+    SVC_ACCOUNT_KEY = credentials('terraform-auth')
     
   }
   
@@ -14,7 +15,7 @@ pipeline {
     stage('Checkout') {
       steps {
         checkout scm
-       
+       sh 'echo $SVC_ACCOUNT_KEY | base64 -d > /home/jenkins/.aws/credentials/credentials.json'
 
       }
     }
