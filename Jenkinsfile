@@ -11,7 +11,7 @@ pipeline {
               
              
                 sh 'ansible all -m ping -u ubuntu'
-                sh 'ansible-playbook  playbook.yml --syntax-check'
+                sh 'ansible-playbook -i inventory.ini playbook.yml --syntax-check'
                  
             }
         }
@@ -25,7 +25,7 @@ pipeline {
         stage('Test') {
             steps {
                 
-               sh "ansible-playbook  playbook.yml "
+               sh "ansible-playbook -i inventory.ini  playbook.yml "
             }
         }
         stage('Deploy') {
