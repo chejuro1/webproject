@@ -35,7 +35,7 @@ pipeline {
      
       steps {
         
-      
+        sh "export AWS_PROFILE=chejuro"
         sh "terraform plan -out=tfplan -input=false "
       }
     }
