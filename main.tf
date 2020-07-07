@@ -1,4 +1,9 @@
 
+variable "aws_access_key" {}
+variable "aws_secret_key" {}
+variable "private_key_path" {}
+
+
 provider "aws" {
   #region = "us-east-2"
   region = var.region
