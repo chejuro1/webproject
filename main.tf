@@ -7,12 +7,11 @@ variable "region" {}
 provider "aws" {
   #region = "us-east-2"
   region = var.region
-  access_key = var.aws_access_key
-  secret_key = var.aws_secret_key
+  
  version = "~> 2.0"
  
  
- #shared_credentials_file = "~/.aws/credentials"
+ shared_credentials_file = "~/.aws/credentials"
   profile                 = "chejuro"
   }
 
