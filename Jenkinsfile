@@ -4,8 +4,8 @@ pipeline {
   environment {
     TF_WORKSPACE = 'dev' //Sets the Terraform Workspace
     TF_IN_AUTOMATION = 'true'
-    shared_credentials_file = "~/.aws/credentials/credentials.json"
-    SVC_ACCOUNT_KEY = credentials('terraform-auth')
+    //shared_credentials_file = "~/.aws/credentials/credentials.json"
+    //SVC_ACCOUNT_KEY = credentials('terraform-auth')
     
   }
   
@@ -35,7 +35,7 @@ pipeline {
      
       steps {
         
-        sh "export AWS_PROFILE=chejuro"
+       // sh "export AWS_PROFILE=chejuro"
         sh "terraform plan -out=tfplan -input=false "
       }
     }
