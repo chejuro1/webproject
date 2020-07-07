@@ -34,9 +34,9 @@ pipeline {
      
       steps {
         
-       sh "export AWS_ACCESS_KEY_ID= "jenkins-aws-secret-access-key""
-        sh "export AWS_SECRET_ACCESS_KEY="jenkins-aws-secret-key-id""
-        sh "export region="us-east-2" "
+        sh "export AWS_ACCESS_KEY_ID='jenkins-aws-secret-access-key'"
+        sh "export AWS_SECRET_ACCESS_KEY='jenkins-aws-secret-key-id'"
+        sh "export region='us-east-2' "
         sh "terraform plan -out=tfplan -input=false "
       }
     }
