@@ -24,8 +24,8 @@ pipeline {
           }
         stage('Test') {
             steps {
-                sh "ansible-galaxy install docker"
-               sh "ansible-playbook playbook.yml "
+                
+               sh "ansible-playbook  playbook.yml "
             }
         }
         stage('Deploy') {
