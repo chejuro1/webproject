@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('ansible') {
           environment {
-                 TOOL = tool name: 'ansible', type: 'org.jenkinsci.plugins.ansible.AnsibleInstallation'
+                 TOOL = tool name: 'Ansible', type: 'org.jenkinsci.plugins.ansible.AnsibleInstallation'
                            }
             steps {
               
