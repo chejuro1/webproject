@@ -10,7 +10,7 @@ pipeline {
             steps {
               
              
-                sh 'ansible all -m ping -u ubuntu'
+                sh 'ansible all -m ping -u jenkins'
                 sh 'ansible-playbook -i inventory.ini playbook.yml --syntax-check'
                  
             }
