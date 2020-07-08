@@ -2,14 +2,17 @@
 # tasks file for docker
 - name: Add Docker GPG key
   apt_key: url=https://download.docker.com/linux/ubuntu/gpg
+  become_user: root
 - name: Add Docker APT repository
   apt_repository:
     repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable
+  become_user: root
 - name: Install list of packages
   apt:
     name: "{{ item }}"
     state: present
     update_cache: yes
+  become_user: root
   with_items:
      - apt-transport-https
      - ca-certificates
@@ -23,3 +26,4 @@
   svc:
     name: docker
     enabled: yes  
+  become_user: root
