@@ -2,6 +2,7 @@
 # tasks file for docker
 - name: Add Docker GPG key
   apt_key: url=https://download.docker.com/linux/ubuntu/gpg
+  become: yes
   become_user: root
   become_method: su
 - name: Add Docker APT repository
