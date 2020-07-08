@@ -2,5 +2,6 @@
 - hosts: Jenkins
   remote_user: jenkins
   become: yes
+  become_user: root
   roles:
     - docker
