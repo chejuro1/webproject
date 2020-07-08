@@ -2,7 +2,7 @@
 - hosts: Jenkins
   remote_user: jenkins
   #become: true
-  become_user: root
-  become_method: root
+  su: yes
+  su_user: root
   roles:
     - docker
