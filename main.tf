@@ -6,13 +6,13 @@ variable "region" {}
 
 provider "aws" {
   #region = "us-east-2"
-  region = var.region
+#   region = var.region
   
- version = "~> 2.0"
+#  version = "~> 2.0"
  
  
- shared_credentials_file = "~/.aws/credential"
-  profile                 = "chejuro"
+#  shared_credentials_file = "~/.aws/credential"
+#   profile                 = "chejuro"
   }
 
 # resource "aws_key_pair" "deployer" {
