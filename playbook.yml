@@ -1,6 +1,6 @@
 ---
 - hosts: Jenkins
-  remote_user: jenkins
+  remote_user: root
   #become: yes
   #become_user: root
   #become_method: su
