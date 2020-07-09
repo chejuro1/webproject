@@ -20,10 +20,10 @@ pipeline {
     }
     stage('Terraform Init') {
       
-      environment {
-            TOOL = tool name: 'terraform', type: 'terraform'
+     //environment {
+       //   TOOL = tool name: 'terraform', type: 'terraform'
            
-                   }
+                 //  }
       
       steps {
         sh 'terraform init -input=false'
