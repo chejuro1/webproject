@@ -20,12 +20,13 @@ pipeline {
     }
     stage('Terraform Init') {
       
-     //environment {
-       //   TOOL = tool name: 'terraform', type: 'terraform'
+     environment {
+          TOOL = tool name: 'terraform', type: 'terraform'
            
-                 //  }
+                   }
       
       steps {
+        sh " whoami;which terraform"
         sh 'terraform init '
       }
     }
