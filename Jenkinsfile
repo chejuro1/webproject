@@ -27,7 +27,7 @@ pipeline {
                    }
       
       steps {
-        sh "AWS_ACCESS_KEY_ID= ${env.access_key}"
+        sh "AWS_ACCESS_KEY_ID=${env.access_key}"
         sh "export AWS_SECRET_ACCESS_KEY=${env.secret_key}"
         sh  "terraform init -input=false"
       }
