@@ -26,8 +26,8 @@ pipeline {
                    }
       
       steps {
-        sh " whoami;which terraform"
-        sh '/usr/bin/terraform init -input=false'
+        sh "which terraform"
+        sh  " terraform init -input=false'
       }
     }
     stage('Terraform Plan') {
