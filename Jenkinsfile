@@ -1,6 +1,6 @@
 pipeline {
   
-   agent any
+   agent { node { label 'project' } }
   environment {
     TF_WORKSPACE = 'dev' //Sets the Terraform Workspace
     TF_IN_AUTOMATION = 'true'
