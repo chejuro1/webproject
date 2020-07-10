@@ -5,8 +5,8 @@ pipeline {
     TF_WORKSPACE = 'dev' //Sets the Terraform Workspace
     TF_IN_AUTOMATION = 'true'
    
-   AWS_ACCESS_KEY_ID=credentials('access_key')
-   AWS_SECRET_ACCESS_KEY=credentials('secret_key')
+   //AWS_ACCESS_KEY_ID=credentials('access_key')
+   //AWS_SECRET_ACCESS_KEY=credentials('secret_key')
     
     
   }
@@ -28,10 +28,7 @@ pipeline {
                    }
       
       steps {
-        sh "AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID"
-        sh "export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY"
-        sh " pwd;hostname"
-        sh "which ansible"
+       
         sh  "terraform init -input=false"
       }
     }
