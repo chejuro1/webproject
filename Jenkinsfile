@@ -5,7 +5,8 @@ pipeline {
     TF_WORKSPACE = 'dev' //Sets the Terraform Workspace
     TF_IN_AUTOMATION = 'true'
    
-   
+   AWS_ACCESS_KEY_ID=credentials('access_key')
+   AWS_SECRET_ACCESS_KEY=credentials('secret_key')
     
     
   }
@@ -27,7 +28,7 @@ pipeline {
                    }
       
       steps {
-        sh "AWS_ACCESS_KEY_ID=${env.access_key}"
+        sh "AWS_ACCESS_KEY_ID=${en.access_key}"
         sh "export AWS_SECRET_ACCESS_KEY=${env.secret_key}"
         sh  "terraform init -input=false"
       }
