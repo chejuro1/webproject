@@ -5,7 +5,9 @@ pipeline {
     TF_WORKSPACE = 'dev' //Sets the Terraform Workspace
     TF_IN_AUTOMATION = 'true'
    
-    //SVC_ACCOUNT_KEY = credentials('terraform-auth')
+    access_key = $access_key
+    secret_key = $secret_key
+    
     
   }
   
