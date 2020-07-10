@@ -31,7 +31,7 @@ pipeline {
       steps {
         sh "AWS_ACCESS_KEY_ID=$access_key"
         sh "export AWS_SECRET_ACCESS_KEY=$secret_key"
-         Sh "export region="us-east-2""
+         Sh " export AWS_DEFAULT_REGION="us-east-2""
         sh  "terraform init -input=false"
       }
     }
