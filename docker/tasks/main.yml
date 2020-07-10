@@ -30,14 +30,6 @@
 #      - docker-ce 
 #   notify:
 #   - restart docker 
-- name: Create docker group
-    group:
-      name: "docker"
-      state: present
-- name: Adding user {{ USER }} to docker group  
-    user:
-      name: "{{ USER }}"
-      groups: "docker"
-      append: "yes"
+
       
  
