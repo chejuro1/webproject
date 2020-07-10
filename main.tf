@@ -6,7 +6,7 @@ provider "aws" {
     region     = "us-east-2"
  
  
- shared_credentials_file = "/Users/chejuro/.aws/credential"
+ shared_credentials_file = "/Users/chejuro/.aws/creds"
  profile                 = "chejuro"
   }
 
