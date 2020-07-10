@@ -5,9 +5,7 @@ pipeline {
     TF_WORKSPACE = 'dev' //Sets the Terraform Workspace
     TF_IN_AUTOMATION = 'true'
    
-    access_key = $access_key
-    secret_key = $secret_key
-    region = "us-east-2"
+   
     
     
   }
