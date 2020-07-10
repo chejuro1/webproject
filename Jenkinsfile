@@ -11,6 +11,7 @@ pipeline {
               
              
                 sh 'ansible all -m ping -u root'
+                sh "hostname;which ansible"
                 sh 'ansible-playbook -i inventory.ini playbook.yml --syntax-check'
                  
             }
