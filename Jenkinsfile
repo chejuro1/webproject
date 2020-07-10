@@ -26,7 +26,7 @@ pipeline {
                    }
       
       steps {
-        sh "which terraform"
+        
         sh  "terraform init -input=false"
       }
     }
