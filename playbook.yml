@@ -7,5 +7,6 @@
   roles:
     - robertdebock.python_pip
     - geerlingguy.nfs
+    - docker
 
  
