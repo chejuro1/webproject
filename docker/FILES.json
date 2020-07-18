@@ -1,0 +1,593 @@
+{
+ "files": [
+  {
+   "name": ".",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".github",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".github/workflows",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".github/workflows/release.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "06dda37bac230989746758c79e8701206414f8e18928709f6bfbfe4d83d6318b",
+   "format": 1
+  },
+  {
+   "name": "build",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "build/galaxy_deploy.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f31b2d1a5064dd51ef017b94c4ca8aaa318aef4b55c022d8654e6283db406925",
+   "format": 1
+  },
+  {
+   "name": "build/templates",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "build/templates/galaxy.yml.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "248e6a42ebaa08d4e34bf949f3dea66414a2400bbb76a9096c20a7a0b76bb20e",
+   "format": 1
+  },
+  {
+   "name": "LICENSE",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+   "format": 1
+  },
+  {
+   "name": ".travis.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8332fb38450c88d1b67fdc2b55be4a7fc231378e260ceadf75f4f148ffc07795",
+   "format": 1
+  },
+  {
+   "name": ".yamllint",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "5845e18e9f23155f423207df9abac970aed687c638620bc2c9ee06706191054b",
+   "format": 1
+  },
+  {
+   "name": "docs",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "docs/readme.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d606bb12663c987db8abf7ac17d49794f7ed1fa36e58f8082632701f33daa224",
+   "format": 1
+  },
+  {
+   "name": "molecule",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "molecule/default",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "molecule/default/verify.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b94db48bc50299d3ab3b5a190f3dcfe070764256ba96138fcf6292ca0e911ed8",
+   "format": 1
+  },
+  {
+   "name": "molecule/default/converge.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "66304ee201547920ecfe713c1ca495b3dcd7268d8d414ed3c7282590d6867f44",
+   "format": 1
+  },
+  {
+   "name": "molecule/default/.ansible-lint",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b2fa2598a46407d13587980569511cdf58db9e566c1ad716d71edf0fde2c5343",
+   "format": 1
+  },
+  {
+   "name": "molecule/default/.yamllint",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d31aa6c37d7ac61def5551e573528830b89289ed124cce9d92cbd9e15a83e437",
+   "format": 1
+  },
+  {
+   "name": "molecule/default/Dockerfile.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0454dcd9e2fc4266d28b1b6a1b1af2af50845c64ee1af12d469b0725b1743a6e",
+   "format": 1
+  },
+  {
+   "name": "molecule/default/molecule.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "4744164f1b679fc3ae72ef45ea091875e35bac61d7cf576fc08a541f85d0a02f",
+   "format": 1
+  },
+  {
+   "name": "molecule/default/files",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "molecule/default/files/override.conf",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "27d57701a92b623757711f18aeba17f089df44c13cead5caca41418a62804d89",
+   "format": 1
+  },
+  {
+   "name": "molecule/default/tests",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "molecule/default/tests/test_default.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6cffb6340ee9f41c6432364db8087dcba59db2bd4e8a65f7fce98b67dda2418a",
+   "format": 1
+  },
+  {
+   "name": "README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "4ddb89778a9a05a611ac10dccdb755d1e4a8301cbbfa3f67e71635a43bd3c3ba",
+   "format": 1
+  },
+  {
+   "name": "roles",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/docker",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/docker/vars",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/docker/vars/ansible_distribution",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/docker/vars/ansible_distribution/oraclelinux.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c5fb9bd758ebe02cfd48486707e8cf7ca1465fbd00facef7b56d7d6c6f4da07c",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/vars/ansible_distribution/centos.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "55b4c11d7fefa3b629cd3fa7aa01527678cedc7c54d8e09090fddba423638c79",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/vars/ansible_distribution/opensuse.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "126f618d6bfe68ef244d9c6541b65350513ab1a6c08eb9d1c7bab969787dc800",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/vars/ansible_distribution/ubuntu.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "6590905961683fc7a07676140201cc3b66d016d16d0f2e29f826fccdfdebb1f3",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/vars/ansible_distribution/debian.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "45b5228c0c384906a89f9af589829873b07df6fbd61dad9228b6fec193a3b400",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/vars/ansible_distribution/fedora.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "af46d6b270ad4ccc5a4f9ca3dde81b25c4ede28d741b1be0e49ce8f9820df65b",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/vars/ansible_distribution/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "fe176248bf05b4c62986d06b9e6454713d7bbc63eea01013d9be96bdabfbb68e",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/vars/ansible_distribution/redhat.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "706c660a6dd32dc34167fa2d75761d5ed5a01968ff16debcaa9d6d3e51db6605",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/vars/ansible_os_family",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/docker/vars/ansible_os_family/debian.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9932de0d6839dae16cf1b5ef49adc0dfb39e9208711bc4697aa497ae235a6867",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/vars/ansible_os_family/suse.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "effb1fdf299a93a9b2e87b7413558710af66ed2266bbc083b1973a1410682ffc",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/vars/ansible_os_family/redhat.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "effb1fdf299a93a9b2e87b7413558710af66ed2266bbc083b1973a1410682ffc",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/meta",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/docker/meta/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e03e2c7bbde411472e5c54f2dbd1ec42b9a2ff08c48988db55a60ec499b1dc58",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/defaults",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/docker/defaults/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c6a4f45a912aee01ab7e948412cdad926706fe3178515455b70b0ffe77582a98",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/handlers",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/docker/handlers/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "5ebc198fdfdf0f751c15124da1eb9195dc4883ab3d4c022013737cad511ba2ff",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/files",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/docker/files/docker-thinpool.profile",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "39bb099d9d00dd74272587bdc84ec179bcce09e47df2863239bfb43e7db6904a",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/other_repo.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "79453176fc400e20ecb99f9b6f63e99fc4a98f92c6d074e8c691876b7f2237c0",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/deploy_config.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b220e76a45578b77c238528a8ff12d25407e13572661e8159cc1ce7925219865",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/ce",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/ce/dnf.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "505abd293d4d3db02df8bc671245b09735ccb71bba32299b97ecea7b0f09e785",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/ce/apt.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2436810266e56815ea73b3d79b0090147767866f3d02d03a71924892c3876997",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/ce/yum.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "fbc46370080c82e6688a4e4d83b31e8aa21dce4849d49a70cce663d6ff45d721",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/ce/os",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/ce/os/ubuntu.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8e33fe66c357df9e36ef139a76458582e548166355e84775cd5d45ded03f8d50",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/ce/os/debian.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "225051c142e3494ede6d098faab90ec19f6591e45063ecb04e3cfa4c6881f974",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/ce/os/default.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f52d711103d50a437830c6fbcd04fb4bab49a0f82f6d26d1c791c6e8488dd090",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/docker_users.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c5f86bfa3d33a4ba7405eb9deb476993a993ed48336a978b890c9caf32d326b1",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/ee",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/ee/apt.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c84dbfb7efcd8353797fbd0122decd60ba67cf796739c0b07067d05f4ea40b31",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/ee/yum.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "856773200600f1d43ce7c084108cb58bc36cd181a7530b0270e85cace2e9b049",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/ee/os",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/ee/os/oraclelinux.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "5eff7dc0a7847ac83280211752d035ac2c9703e9d97fe95443de2f95dad83527",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/ee/os/centos.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f52d711103d50a437830c6fbcd04fb4bab49a0f82f6d26d1c791c6e8488dd090",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/ee/os/ubuntu.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "45856a509df6163bb1dff05b13389a6ef74794b2986be3d0464d249a011ca6f0",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/ee/os/debian.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f52d711103d50a437830c6fbcd04fb4bab49a0f82f6d26d1c791c6e8488dd090",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/ee/os/fedora.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f52d711103d50a437830c6fbcd04fb4bab49a0f82f6d26d1c791c6e8488dd090",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/ee/os/redhat.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f52d711103d50a437830c6fbcd04fb4bab49a0f82f6d26d1c791c6e8488dd090",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/proxy.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "cb2e599f89913a0dcab7746ff7e0e0bcdee4f84ebbfd0b6cb3a25f5093b02a22",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/storage_drivers",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/storage_drivers/aufs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "203c7f5c9131b1132c504c40d785ddc604e2ae8f8ff249a62a9096329ad0ba4c",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/storage_drivers/overlay.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0e2372f89f284946a5333b47a413bc958473bb9e686a4ac2daaab0e690db6b8d",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/storage_drivers/overlay2.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "128f581942ec4b5bf58467d8fc1aa25ea2efa21ea20cbdf6e6a4507d42e6165c",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/storage_drivers/zfs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b81520b1f996c4a3a055135aac2e2afc193703df5203aad0278131b023a8faa5",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/storage_drivers/btrfs.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "090aba5aef64050b9ae9ab90e9fd21b392b36590f97236cdb0ba37c4ed7050b5",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/storage_drivers/devicemapper.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1bee628be01c44130ba54b888b8559edc3575d0cad3fadc3ab08a5f3306ff36e",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "df295fe0312ec2f09ca0b02defb231f91bd7de57013a45c35a12a612342ee2a5",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/templates",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "roles/docker/templates/http-proxy.conf.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c9bb7e33d619ba0d690fde0a1b15181424623dc50ac59a54ededebdb93ed7169",
+   "format": 1
+  },
+  {
+   "name": "roles/docker/templates/docker_config.j2",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f2d3db69311f9ec8b8d4b3eed42900e7a5ea29c77936d87b3af0a941d758bfd2",
+   "format": 1
+  }
+ ],
+ "format": 1
+}
