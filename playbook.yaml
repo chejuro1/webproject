@@ -1,0 +1,13 @@
+---
+ host: ALL
+ task:
+ - name: Add repository
+   yum_repository:
+       name: ansible-2.9-for-rhel-8-x86_64-rpms 
+       enable: yes
+ - name: install ansible 
+   yum: 
+     name: ansible
+     state: installed
+
+ 
