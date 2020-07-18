@@ -1,0 +1,30 @@
+{
+ "collection_info": {
+  "namespace": "ericsysmin",
+  "name": "docker",
+  "version": "0.1.1",
+  "authors": [
+   "Eric Anderson <eric.sysmin@gmail.com>"
+  ],
+  "readme": "README.md",
+  "tags": [
+   "docker"
+  ],
+  "description": "Docker collection",
+  "license": [],
+  "license_file": "LICENSE",
+  "dependencies": {},
+  "repository": "https://github.com/ericsysmin/ansible-collection-docker",
+  "documentation": null,
+  "homepage": "https://github.com/ericsysmin/ansible-collection-docker",
+  "issues": "https://github.com/ericsysmin/ansible-collection-docker/issues"
+ },
+ "file_manifest_file": {
+  "name": "FILES.json",
+  "ftype": "file",
+  "chksum_type": "sha256",
+  "chksum_sha256": "471b7bbc0c76b779f48e22d39fdaa88f9c5451082b6d027bcf637d677d5f05ac",
+  "format": 1
+ },
+ "format": 1
+}
