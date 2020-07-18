@@ -5,8 +5,6 @@
   become_user: root
   #become_method: su
   roles:
-    - robertdebock.python_pip
-    - geerlingguy.nfs
     - docker
 
  
