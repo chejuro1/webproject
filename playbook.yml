@@ -1,10 +1,10 @@
 ---
-- hosts: Jenkins
-  remote_user: root
+- hosts: All
+  remote_user: ubuntu
   #become: yes
-  #become_user: root
+  become_user: root
   #become_method: su
   roles:
-    - geerlingguy.apache
+    - robertdebock.python_pip
 
  
