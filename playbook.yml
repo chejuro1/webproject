@@ -43,6 +43,9 @@
       name: ec2-user
       group: docker
  
+  handlers:
+    - name: docker status
+      service: name=docker state=started
    
 
 
