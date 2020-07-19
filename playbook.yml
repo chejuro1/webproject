@@ -5,6 +5,6 @@
   become_user: root
   #become_method: su
   roles:
-    - role: ericsysmin.docker.docker
+    - role: geerlingguy.nfs
 
  
