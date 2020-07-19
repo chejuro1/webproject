@@ -1,6 +1,6 @@
 ---
 - hosts: "{{ hosts_var }}"
-become: true
+  become: true
   tasks:
   - name: Install packages that allow apt to be used over HTTPS
     apt:
