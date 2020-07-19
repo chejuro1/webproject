@@ -1,8 +1,10 @@
 ---
-- hosts: "{{ hosts_var }}"
+- hosts: webservers
   remote_user: ubuntu
-  Roles:
-   - gantsign.java
+  roles:
+    - gantsign.java
+   
+    
 #   tasks:
 #   - name: Install packages that allow apt to be used over HTTPS
 #     apt:
