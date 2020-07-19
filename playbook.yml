@@ -1,5 +1,5 @@
 ---
-- hosts: "{{ hosts_var }}"
+- hosts: Redhat
   remote_user: ec2-user
   become: yes
   become_user: root
