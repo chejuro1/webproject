@@ -2,7 +2,7 @@
 - hosts: "{{ hosts_var }}" 
   remote_user: ubuntu
   roles:
-    - gantsign.java
+    - geerlingguy.nfs
    
     
 #   tasks:
