@@ -1,12 +1,11 @@
 pipeline {
   
-   agent { node { label 'project1' } }
+   agent { node { label 'project' } }
   environment {
     TF_WORKSPACE = 'dev' //Sets the Terraform Workspace
     TF_IN_AUTOMATION = 'true'
    
-   //AWS_ACCESS_KEY_ID=credentials('access_key')
-   //AWS_SECRET_ACCESS_KEY=credentials('secret_key')
+ 
     
     
   }
