@@ -37,7 +37,7 @@ pipeline {
      
       steps {
         
-        
+        sh "pwd "
         sh "terraform plan -out=tfplan -input=false "
       }
     }
