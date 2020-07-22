@@ -52,7 +52,7 @@ pipeline {
     stage('Terraform Apply') {
       steps {
         input 'Apply Plan'
-        sh "${env.TERRAFORM_HOME}/terraform apply -input=false tfplan"
+        sh "terraform apply -input=false tfplan"
       }
     }
     stage('AWSpec Tests') {
