@@ -1,6 +1,6 @@
 ---
 - hosts: '{{ hosts_var }}' 
-  remote_user: root
+  remote_user: ubuntu
   #become: yes
   #become_user: root
   #become_method: su
