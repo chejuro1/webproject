@@ -27,10 +27,13 @@ pipeline {
                    }
       
       steps {
-       
-        sh  "terraform init -input=false"
-      }
-    }
+         container('terraform') {
+           sh 'terraform init'
+           sh 'terraform plan -out myplan'
+         }
+       }
+     }
+    
     stage('Terraform Plan') {
       
      
