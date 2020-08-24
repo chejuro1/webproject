@@ -1,6 +1,11 @@
 pipeline {
   
-  agent any
+  agent {
+     kubernetes {
+     //cloud 'kubernetes'
+     label 'terraform'
+     }
+  }
   environment {
     TF_WORKSPACE = 'dev' //Sets the Terraform Workspace
     TF_IN_AUTOMATION = 'true'
@@ -27,10 +32,10 @@ pipeline {
                    }
       
       steps {
-         container('terraform') {
+        
            sh 'terraform init'
-           sh 'terraform plan -out myplan'
-         }
+           
+       
        }
      }
     
