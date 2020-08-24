@@ -20,7 +20,9 @@ pipeline {
     
     stage('Checkout') {
       steps {
-        checkout scm
+        
+       sh ' git branch: 'terraform ', credentialsId: 'Github', url: 'https://github.com/chejuro1/webproject.git'  '
+        //checkout scm
        
       }
     }
