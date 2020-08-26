@@ -1,6 +1,11 @@
 
 pipeline {
-    agent { node { label 'project' } }
+     agent {
+     kubernetes {
+     //cloud 'kubernetes'
+     label 'terraform'
+     }
+  }
 
     stages {
         stage('ansible') {
