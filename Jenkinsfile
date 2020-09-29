@@ -1,4 +1,4 @@
-**/
+
 
 import org.jenkinsci.plugins.scriptsecurity.scripts.*
   
