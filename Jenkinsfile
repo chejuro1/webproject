@@ -1,10 +1,9 @@
-pipeline {
-    agent { docker { image 'python:3.5.1' } }
-    stages {
-        stage('build') {
-            steps {
-                sh 'python --version'
-            }
+/* Requires the Docker Pipeline plugin */
+node('docker') {
+    checkout scm
+    stage('Build') {
+        docker.image('maven:3.3.3').inside {
+            sh 'mvn --version'
         }
     }
 }
