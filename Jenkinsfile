@@ -3,7 +3,7 @@ pipeline {
   agent {
      kubernetes {
      //cloud 'kubernetes'
-     label 'terraform'
+     label 'terraform-agent'
      }
   }
   environment {
