@@ -1,5 +1,5 @@
 node {  
-     stage('Build') { 
+     stage('Clone') { 
         git branch: 'test1', credentialsId: 'chejuro', url: 'https://github.com/chejuro1/webproject.git'
     }
      
