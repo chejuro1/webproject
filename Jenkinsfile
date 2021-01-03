@@ -4,7 +4,7 @@ node {
     }
      
     stage('Build') { 
-        // 
+        sh "ls "
     }
     stage('Test') { 
         // 
