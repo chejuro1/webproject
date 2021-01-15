@@ -15,7 +15,7 @@ pipeline {
             steps {
               
              
-                sh 'ansible all -m ping -u root'
+                sh 'ansible -i inventory.ini -m ping -u root'
                 sh "hostname;which ansible"
                 sh 'ansible-playbook -i inventory.ini playbook.yml --syntax-check'
                 //sh 'ansible-playbook -i inventory.ini   ansible-collection-kubernetes/playbooks/converge.yml --syntax-check' 
