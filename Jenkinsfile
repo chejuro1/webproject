@@ -1,5 +1,10 @@
 pipeline {
-     agent any
+     agent {
+    node {
+        label 'node'
+        customWorkspace '/etc/ansible'
+    }
+}
   
 
     stages {
