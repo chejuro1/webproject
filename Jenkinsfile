@@ -2,7 +2,7 @@ pipeline {
      agent {
     node {
         label 'node'
-        customWorkspace '/etc/ansible'
+        //customWorkspace '/etc/ansible'
     }
 }
   
